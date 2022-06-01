@@ -4,13 +4,12 @@ using UnityEngine.InputSystem;
 namespace TopViewShooter.Characters
 {
     [RequireComponent(typeof(PlayerInput))]
-    public class PlayerMover : CharacterMover
+    public sealed class PlayerMover : CharacterMover
     {
         private const string MoveActionName = "Move";
 
         private PlayerInput _playerInput;
         private InputActionMap _inputActionMap;
-
         private InputAction _moveAction;
 
         protected override void Awake()

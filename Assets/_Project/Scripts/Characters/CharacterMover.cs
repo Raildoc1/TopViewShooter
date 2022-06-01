@@ -3,7 +3,7 @@ using UnityEngine;
 namespace TopViewShooter.Characters
 {
     [RequireComponent(typeof(CharacterController))]
-    public class CharacterMover : MonoBehaviour
+    public abstract class CharacterMover : MonoBehaviour
     {
         [SerializeField] private float _speed = 0.5f;
 
@@ -27,7 +27,7 @@ namespace TopViewShooter.Characters
 
         private void Move()
         {
-            _characterController.SimpleMove(_direction * _speed);
+            _characterController.Move(_direction * _speed * Time.deltaTime);
         }
     }
 }
