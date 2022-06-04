@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TopViewShooter.Characters
 {
-    public abstract class CharacterShooter : MonoBehaviour
+    public class CharacterShooter : MonoBehaviour
     {
         [SerializeField] protected Transform _bulletSpawnPoint;
         [SerializeField] protected BulletsPool _bulletsPool;
@@ -21,7 +21,7 @@ namespace TopViewShooter.Characters
             }
         }
 
-        protected void Shoot()
+        public void Shoot()
         {
             _bulletsPool.SpawnBullet(_bulletSpawnPoint);
         }

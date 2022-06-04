@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TopViewShooter.Characters
 {
-    public abstract class CharacterRotator : MonoBehaviour
+    public class CharacterRotator : MonoBehaviour
     {
         [SerializeField] private float _rotationSpeed = 1.0f;
 
@@ -22,7 +22,7 @@ namespace TopViewShooter.Characters
                 0.0f);
         }
 
-        protected void LookInDirection(Vector3 desiredForward)
+        public void LookInDirection(Vector3 desiredForward)
         {
             _desiredForward = desiredForward;
             _desiredForward.y = 0.0f;

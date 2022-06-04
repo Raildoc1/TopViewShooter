@@ -4,7 +4,7 @@ using UnityEngine;
 namespace TopViewShooter.Characters
 {
     [RequireComponent(typeof(CharacterController))]
-    public abstract class CharacterMover : MonoBehaviour
+    public class CharacterMover : MonoBehaviour
     {
         [SerializeField] private BattleField _battleField;
         [SerializeField] private float _speed = 0.5f;
@@ -12,17 +12,17 @@ namespace TopViewShooter.Characters
         private CharacterController _characterController;
         private Vector3 _direction;
 
-        protected virtual void Awake()
+        private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
         }
 
-        protected void SetDirection(Vector2 direction)
+        public void SetDirection(Vector2 direction)
         {
             _direction = new Vector3(direction.x, 0.0f, direction.y).normalized;
         }
 
-        protected void Update()
+        private void Update()
         {
             Move();
         }
@@ -30,7 +30,10 @@ namespace TopViewShooter.Characters
         private void Move()
         {
             _characterController.Move(_direction * _speed * Time.deltaTime);
-            transform.position = _battleField.ClampOnFieldPosition(transform.position);
+            var position = transform.position;
+            position = _battleField.ClampOnFieldPosition(position);
+            position.y = 0.0f;
+            transform.position = position;
         }
     }
 }
