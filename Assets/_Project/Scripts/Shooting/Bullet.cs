@@ -1,3 +1,4 @@
+using TopViewShooter.Characters;
 using TopViewShooter.Core;
 using UnityEngine;
 
@@ -46,14 +47,11 @@ namespace TopViewShooter.Shooting
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.TryGetComponent<Health>(out var health))
             {
+                health.ApplyDamage();
                 _pool.Release(this);
-            }
-
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                _pool.Release(this);
+                return;
             }
 
             Velocity = Vector3.Reflect(Velocity, collision.contacts[0].normal);

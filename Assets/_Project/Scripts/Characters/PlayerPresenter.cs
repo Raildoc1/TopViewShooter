@@ -47,7 +47,6 @@ namespace TopViewShooter.Characters
         private void OnMoveActionCanceled(InputAction.CallbackContext _) => _characterMover.SetDirection(Vector2.zero);
         private void OnShootActionPerformed(InputAction.CallbackContext _) => _characterShooter.Shoot();
 
-
         private void OnLookActionPerformed(InputAction.CallbackContext context)
         {
             var rotateTo = _mainCamera.ScreenToWorldPoint(context.action.ReadValue<Vector2>());
