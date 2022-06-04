@@ -9,15 +9,13 @@ namespace TopViewShooter.Characters
         private const string LookActionName = "Look";
 
         private PlayerInput _playerInput;
-        private InputActionMap _inputActionMap;
         private InputAction _lookAction;
         private Camera _mainCamera;
 
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
-            _inputActionMap = _playerInput.currentActionMap;
-            _lookAction = _inputActionMap.FindAction(LookActionName);
+            _lookAction = _playerInput.currentActionMap.FindAction(LookActionName);
             _mainCamera = Camera.main;
         }
 

@@ -1,3 +1,4 @@
+using TopViewShooter.Core;
 using UnityEngine;
 
 namespace TopViewShooter.Characters
@@ -5,6 +6,7 @@ namespace TopViewShooter.Characters
     [RequireComponent(typeof(CharacterController))]
     public abstract class CharacterMover : MonoBehaviour
     {
+        [SerializeField] private BattleField _battleField;
         [SerializeField] private float _speed = 0.5f;
 
         private CharacterController _characterController;
@@ -28,6 +30,7 @@ namespace TopViewShooter.Characters
         private void Move()
         {
             _characterController.Move(_direction * _speed * Time.deltaTime);
+            transform.position = _battleField.ClampOnFieldPosition(transform.position);
         }
     }
 }

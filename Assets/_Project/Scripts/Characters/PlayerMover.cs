@@ -9,15 +9,13 @@ namespace TopViewShooter.Characters
         private const string MoveActionName = "Move";
 
         private PlayerInput _playerInput;
-        private InputActionMap _inputActionMap;
         private InputAction _moveAction;
 
         protected override void Awake()
         {
             base.Awake();
             _playerInput = GetComponent<PlayerInput>();
-            _inputActionMap = _playerInput.currentActionMap;
-            _moveAction = _inputActionMap.FindAction(MoveActionName);
+            _moveAction = _playerInput.currentActionMap.FindAction(MoveActionName);
         }
 
         private void OnEnable()

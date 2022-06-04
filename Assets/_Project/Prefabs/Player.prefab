@@ -59,13 +59,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 25218454524252659, guid: f55eff093079b0f4fbbc0b2633353439, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f55eff093079b0f4fbbc0b2633353439, type: 3}
+--- !u!4 &1225881735394971009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4933975906853615580, guid: f55eff093079b0f4fbbc0b2633353439, type: 3}
+  m_PrefabInstance: {fileID: 6159292629290007133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6134936300705344430 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 25218454524252659, guid: f55eff093079b0f4fbbc0b2633353439, type: 3}
   m_PrefabInstance: {fileID: 6159292629290007133}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &455671067710962565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134936300705344430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12ecaced2a52af4ab8c5ed72793e9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpawnPoint: {fileID: 1225881735394971009}
+  _bulletsPool: {fileID: 0}
 --- !u!114 &1294251609933534173
 MonoBehaviour:
   m_ObjectHideFlags: 0
