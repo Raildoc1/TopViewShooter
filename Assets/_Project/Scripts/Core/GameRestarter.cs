@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TopViewShooter.Characters;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace TopViewShooter.Core
     public class GameRestarter : MonoBehaviour
     {
         [SerializeField] private List<Health> _healths;
+
+        public event Action RestartGame;
 
         private void OnEnable()
         {
@@ -26,7 +29,7 @@ namespace TopViewShooter.Core
 
         private void Restart()
         {
-            Debug.Log("Restart");
+            RestartGame?.Invoke();
         }
     }
 }

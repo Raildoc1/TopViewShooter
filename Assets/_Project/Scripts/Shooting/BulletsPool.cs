@@ -8,6 +8,7 @@ namespace TopViewShooter.Shooting
     {
         [SerializeField] private Bullet _bulletPrefab;
         [SerializeField] private BattleField _battleField;
+        [SerializeField] private GameRestarter _gameRestarter;
 
         private IObjectPool<Bullet> _pool;
 
@@ -29,7 +30,7 @@ namespace TopViewShooter.Shooting
             var bulletTransform = bullet.transform;
             bulletTransform.position = spawnPoint.position;
             bulletTransform.forward = spawnPoint.forward;
-            bullet.Init(this, _battleField);
+            bullet.Setup();
         }
 
         public void Release(Bullet bullet)
@@ -44,6 +45,7 @@ namespace TopViewShooter.Shooting
                 transform.position,
                 Quaternion.identity,
                 transform);
+            bullet.Init(this, _battleField, _gameRestarter);
             return bullet;
         }
 
@@ -59,6 +61,7 @@ namespace TopViewShooter.Shooting
 
         private void OnDestroyPoolObject(Bullet bullet)
         {
+            bullet.Deinit();
             Destroy(bullet.gameObject);
         }
     }

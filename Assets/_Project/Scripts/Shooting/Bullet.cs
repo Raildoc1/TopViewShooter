@@ -14,6 +14,7 @@ namespace TopViewShooter.Shooting
         private Rigidbody _rigidbody;
         private BulletsPool _pool;
         private BattleField _battleField;
+        private GameRestarter _gameRestarter;
 
         private Vector3 Velocity
         {
@@ -38,23 +39,44 @@ namespace TopViewShooter.Shooting
             }
         }
 
-        public void Init(BulletsPool pool, BattleField battleField)
+        public void Init(BulletsPool pool, BattleField battleField, GameRestarter gameRestarter)
         {
             _pool = pool;
-            Velocity = transform.forward * _speed;
             _battleField = battleField;
+            _gameRestarter = gameRestarter;
+            _gameRestarter.RestartGame += OnGameRestart;
         }
+
+        public void Deinit()
+        {
+            _gameRestarter.RestartGame -= OnGameRestart;
+        }
+
+        public void Setup()
+        {
+            Velocity = transform.forward * _speed;
+        }
+
+        private void OnGameRestart() => TryReturnToPool();
 
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.TryGetComponent<Health>(out var health))
             {
                 health.ApplyDamage();
-                _pool.Release(this);
+                TryReturnToPool();
                 return;
             }
 
             Velocity = Vector3.Reflect(Velocity, collision.contacts[0].normal);
+        }
+
+        private void TryReturnToPool()
+        {
+            if (gameObject.activeSelf)
+            {
+                _pool.Release(this);
+            }
         }
     }
 }

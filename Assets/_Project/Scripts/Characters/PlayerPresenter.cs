@@ -1,3 +1,4 @@
+using TopViewShooter.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using PlayerInputManager = TopViewShooter.Input.PlayerInputManager;
@@ -10,6 +11,8 @@ namespace TopViewShooter.Characters
     [RequireComponent(typeof(PlayerInputManager))]
     public class PlayerPresenter : MonoBehaviour
     {
+        [SerializeField] private GameRestarter _gameRestarter;
+
         private CharacterMover _characterMover;
         private CharacterRotator _characterRotator;
         private CharacterShooter _characterShooter;
@@ -18,7 +21,6 @@ namespace TopViewShooter.Characters
 
         private void Awake()
         {
-            Debug.Log("Awake");
             _characterMover = GetComponent<CharacterMover>();
             _characterRotator = GetComponent<CharacterRotator>();
             _characterShooter = GetComponent<CharacterShooter>();
@@ -28,11 +30,12 @@ namespace TopViewShooter.Characters
         }
         private void OnEnable()
         {
-            Debug.Log("OnEnable");
             _playerInputManager.MoveAction.performed += OnMoveActionPerformed;
             _playerInputManager.MoveAction.canceled += OnMoveActionCanceled;
             _playerInputManager.LookAction.performed += OnLookActionPerformed;
             _playerInputManager.ShootAction.performed += OnShootActionPerformed;
+
+            _gameRestarter.RestartGame += OnRestartGame;
         }
 
         private void OnDisable()
@@ -41,8 +44,11 @@ namespace TopViewShooter.Characters
             _playerInputManager.MoveAction.canceled -= OnMoveActionCanceled;
             _playerInputManager.LookAction.performed -= OnLookActionPerformed;
             _playerInputManager.ShootAction.performed -= OnShootActionPerformed;
+
+            _gameRestarter.RestartGame -= OnRestartGame;
         }
 
+        private void OnRestartGame() => _characterMover.Setup();
         private void OnMoveActionPerformed(InputAction.CallbackContext context) => _characterMover.SetDirection(context.action.ReadValue<Vector2>());
         private void OnMoveActionCanceled(InputAction.CallbackContext _) => _characterMover.SetDirection(Vector2.zero);
         private void OnShootActionPerformed(InputAction.CallbackContext _) => _characterShooter.Shoot();

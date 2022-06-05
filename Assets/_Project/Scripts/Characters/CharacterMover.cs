@@ -7,6 +7,7 @@ namespace TopViewShooter.Characters
     public class CharacterMover : MonoBehaviour
     {
         [SerializeField] private BattleField _battleField;
+        [SerializeField] private Transform _spawnPoint;
         [SerializeField] private float _speed = 0.5f;
 
         private CharacterController _characterController;
@@ -20,6 +21,13 @@ namespace TopViewShooter.Characters
         public void SetDirection(Vector2 direction)
         {
             _direction = new Vector3(direction.x, 0.0f, direction.y).normalized;
+        }
+
+        public void Setup()
+        {
+            _characterController.enabled = false;
+            transform.position = _spawnPoint.position;
+            _characterController.enabled = true;
         }
 
         private void Update()

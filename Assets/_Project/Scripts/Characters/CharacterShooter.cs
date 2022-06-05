@@ -8,7 +8,7 @@ namespace TopViewShooter.Characters
         [SerializeField] protected Transform _bulletSpawnPoint;
         [SerializeField] protected BulletsPool _bulletsPool;
 
-        protected virtual void Awake()
+        private void Awake()
         {
             if (!_bulletsPool)
             {

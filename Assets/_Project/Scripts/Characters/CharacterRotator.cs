@@ -8,12 +8,12 @@ namespace TopViewShooter.Characters
 
         private Vector3 _desiredForward;
 
-        protected virtual void Start()
+        private void Start()
         {
             _desiredForward = transform.forward;
         }
 
-        protected virtual void Update()
+        private void Update()
         {
             transform.forward = Vector3.RotateTowards(
                 transform.forward,
