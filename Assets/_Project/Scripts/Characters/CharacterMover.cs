@@ -13,6 +13,8 @@ namespace TopViewShooter.Characters
         private CharacterController _characterController;
         private Vector3 _direction;
 
+        public Vector3 Velocity => _characterController.velocity;
+
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
@@ -20,7 +22,12 @@ namespace TopViewShooter.Characters
 
         public void SetDirection(Vector2 direction)
         {
-            _direction = new Vector3(direction.x, 0.0f, direction.y).normalized;
+            SetDirection(new Vector3(direction.x, 0.0f, direction.y).normalized);
+        }
+
+        public void SetDirection(Vector3 direction)
+        {
+            _direction = direction.normalized;
         }
 
         public void Setup()

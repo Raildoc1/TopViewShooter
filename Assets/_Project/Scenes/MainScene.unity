@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: e5a8eee2748ba794a97dfe135748a9c3, type: 2}
 --- !u!1 &163888500
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,11 +136,11 @@ GameObject:
   - component: {fileID: 163888503}
   - component: {fileID: 163888502}
   m_Layer: 0
-  m_Name: obstacke (2)
+  m_Name: obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &163888501
 Transform:
@@ -389,11 +389,11 @@ GameObject:
   - component: {fileID: 581305522}
   - component: {fileID: 581305521}
   m_Layer: 0
-  m_Name: obstacke (5)
+  m_Name: obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &581305520
 Transform:
@@ -486,11 +486,11 @@ GameObject:
   - component: {fileID: 621934638}
   - component: {fileID: 621934637}
   m_Layer: 0
-  m_Name: obstacke (6)
+  m_Name: obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &621934636
 Transform:
@@ -827,11 +827,11 @@ GameObject:
   - component: {fileID: 747498160}
   - component: {fileID: 747498159}
   m_Layer: 0
-  m_Name: obstacke (3)
+  m_Name: obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &747498158
 Transform:
@@ -1242,11 +1242,11 @@ GameObject:
   - component: {fileID: 1094302883}
   - component: {fileID: 1094302882}
   m_Layer: 0
-  m_Name: obstacke
+  m_Name: obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &1094302881
 Transform:
@@ -1339,11 +1339,11 @@ GameObject:
   - component: {fileID: 1276190804}
   - component: {fileID: 1276190803}
   m_Layer: 0
-  m_Name: obstacke (4)
+  m_Name: obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &1276190802
 Transform:
@@ -1469,7 +1469,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6286982, y: 1}
+    m_SensorSize: {x: 0.7662722, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1507,11 +1507,11 @@ GameObject:
   - component: {fileID: 1653711076}
   - component: {fileID: 1653711075}
   m_Layer: 0
-  m_Name: obstacke (1)
+  m_Name: obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &1653711074
 Transform:
@@ -1621,7 +1621,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1868939950
 Transform:
@@ -1663,7 +1663,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1941232270
 Transform:
@@ -1852,15 +1852,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6550831811124944389, guid: 9afdaeb6fd133424fbfd17ae8271efd8, type: 3}
+    - target: {fileID: 4556306461917906056, guid: 9afdaeb6fd133424fbfd17ae8271efd8, type: 3}
       propertyPath: _spawnPoint
       value: 
       objectReference: {fileID: 903046023}
-    - target: {fileID: 6550831811124944389, guid: 9afdaeb6fd133424fbfd17ae8271efd8, type: 3}
+    - target: {fileID: 5952775717433017560, guid: 9afdaeb6fd133424fbfd17ae8271efd8, type: 3}
+      propertyPath: _gameRestarter
+      value: 
+      objectReference: {fileID: 523602396}
+    - target: {fileID: 0}
+      propertyPath: _speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _spawnPoint
+      value: 
+      objectReference: {fileID: 903046023}
+    - target: {fileID: 0}
       propertyPath: _battleField
       value: 
       objectReference: {fileID: 523602395}
-    - target: {fileID: 6550831811124944389, guid: 9afdaeb6fd133424fbfd17ae8271efd8, type: 3}
+    - target: {fileID: 0}
       propertyPath: _gameRestarter
       value: 
       objectReference: {fileID: 523602396}
